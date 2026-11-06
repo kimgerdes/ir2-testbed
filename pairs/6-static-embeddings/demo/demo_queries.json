@@ -1,0 +1,6 @@
+{
+ "hero": {"query": "Individuals with low serum vitamin D concentrations have increased risk of multiple sclerosis.", "dataset": "scifact"},
+ "failure": {"query": "The locus rs647161 is associated with colorectal carcinoma.", "dataset": "scifact"},
+ "backup": {"query": "Zoloft", "dataset": "nfcorpus"},
+ "negation": {"query": "Macrolides have no protective effect against myocardial infarction.", "dataset": "scifact"}
+}

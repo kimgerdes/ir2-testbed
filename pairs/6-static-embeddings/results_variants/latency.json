@@ -1,0 +1,136 @@
+{
+ "torch_threads": 8,
+ "n_docs": 5183,
+ "systems": {
+  "bm25": {
+   "label": "BM25",
+   "query_ms_median": 6.024204998539062,
+   "query_ms_p95": 12.125438600196503,
+   "index_s": 4.760876996999286,
+   "params": 0,
+   "dims": null,
+   "index_bytes_per_doc": null
+  },
+  "minilm": {
+   "label": "all-MiniLM-L6-v2",
+   "query_ms_median": 6.408102497516666,
+   "query_ms_p95": 8.101774549322727,
+   "query_encode_ms_median": 5.900832498809905,
+   "corpus_docs_per_s": 46.51936885167251,
+   "corpus_encode_s_estimate": 111.41595700762943,
+   "params": 22713216,
+   "dims": 384,
+   "index_bytes_per_doc": 1536
+  },
+  "bge": {
+   "label": "bge-small-en-v1.5",
+   "query_ms_median": 12.817804499718477,
+   "query_ms_p95": 16.380758648119805,
+   "query_encode_ms_median": 12.527227499958826,
+   "corpus_docs_per_s": 16.39486969473225,
+   "corpus_encode_s_estimate": 316.1354799706229,
+   "params": 33360000,
+   "dims": 384,
+   "index_bytes_per_doc": 1536
+  },
+  "official": {
+   "label": "static-retrieval-mrl-en-v1",
+   "query_ms_median": 1.3885324988223147,
+   "query_ms_p95": 1.935798551312473,
+   "query_encode_ms_median": 0.3117180003755493,
+   "corpus_docs_per_s": 7938.534283165105,
+   "corpus_encode_s_estimate": 0.6528913040019688,
+   "params": 31254528,
+   "dims": 1024,
+   "index_bytes_per_doc": 4096
+  },
+  "glove": {
+   "label": "GloVe 6B-300d average",
+   "query_ms_median": 0.48463500024809036,
+   "query_ms_p95": 0.9568107505401713,
+   "query_encode_ms_median": 0.26880500081460923,
+   "corpus_docs_per_s": 6458.046511958057,
+   "corpus_encode_s_estimate": 0.802564674999303,
+   "params": 120000300,
+   "dims": 300,
+   "index_bytes_per_doc": 1200
+  },
+  "mpnet": {
+   "label": "all-mpnet-base-v2",
+   "query_ms_median": 34.23088000090502,
+   "query_ms_p95": 43.55720984804066,
+   "query_encode_ms_median": 28.643255500355735,
+   "corpus_docs_per_s": 3.8835874333246996,
+   "corpus_encode_s_estimate": 1334.5907846763441,
+   "params": 109486464,
+   "dims": 768,
+   "index_bytes_per_doc": 3072
+  },
+  "contriever": {
+   "label": "Contriever (MS MARCO)",
+   "query_ms_median": 30.59802099960507,
+   "query_ms_p95": 38.50007389810344,
+   "query_encode_ms_median": 26.00471899859258,
+   "corpus_docs_per_s": 4.763599381460042,
+   "corpus_encode_s_estimate": 1088.0427980934473,
+   "params": 109482240,
+   "dims": 768,
+   "index_bytes_per_doc": 3072
+  },
+  "e5": {
+   "label": "e5-small-v2",
+   "query_ms_median": 12.301635499170516,
+   "query_ms_p95": 15.420625150545673,
+   "query_encode_ms_median": 11.156694497913122,
+   "corpus_docs_per_s": 15.59197960935392,
+   "corpus_encode_s_estimate": 332.4144932110238,
+   "params": 33360000,
+   "dims": 384,
+   "index_bytes_per_doc": 1536
+  },
+  "qwen3": {
+   "label": "Qwen3-Embedding-0.6B",
+   "query_ms_median": 508.3919100015919,
+   "query_ms_p95": 727.2370157015757,
+   "query_encode_ms_median": 500.6922394986759,
+   "corpus_docs_per_s": 0.17642401365713758,
+   "corpus_encode_s_estimate": 29378.086874684996,
+   "params": 595776512,
+   "dims": 1024,
+   "index_bytes_per_doc": 4096
+  },
+  "m2v_base": {
+   "label": "Model2Vec M2V_base_output",
+   "query_ms_median": 0.3904780005541397,
+   "query_ms_p95": 0.5407832473792951,
+   "query_encode_ms_median": 0.23271750069397967,
+   "corpus_docs_per_s": 11139.785617102723,
+   "corpus_encode_s_estimate": 0.4652692769996066,
+   "params": 7559168,
+   "dims": 256,
+   "index_bytes_per_doc": 1024
+  },
+  "potion8m": {
+   "label": "Model2Vec potion-base-8M",
+   "query_ms_median": 0.4101784979866352,
+   "query_ms_p95": 0.521068899979582,
+   "query_encode_ms_median": 0.250932500421186,
+   "corpus_docs_per_s": 11999.876579297974,
+   "corpus_encode_s_estimate": 0.43192110900054104,
+   "params": 7559168,
+   "dims": 256,
+   "index_bytes_per_doc": 1024
+  },
+  "potion_ret32m": {
+   "label": "Model2Vec potion-retrieval-32M",
+   "query_ms_median": 0.44325700037006754,
+   "query_ms_p95": 0.6049395007721611,
+   "query_encode_ms_median": 0.2514815005270066,
+   "corpus_docs_per_s": 11786.976687974442,
+   "corpus_encode_s_estimate": 0.43972259699876304,
+   "params": 32302592,
+   "dims": 512,
+   "index_bytes_per_doc": 2048
+  }
+ }
+}
