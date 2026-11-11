@@ -39,7 +39,7 @@ for name in ["scifact", "nfcorpus"]:
 for m in models.values():  # warm-up, so the first query is not slower
     m.encode(["warm up"])
 
-SYSTEMS = [("bm25", "BM25 (spring first stage)"), ("minilm", "all-MiniLM-L6-v2 (spring bi-encoder)"),
+SYSTEMS = [("bm25", "BM25"), ("minilm", "all-MiniLM-L6-v2"),
            ("static", "static-retrieval-mrl-en-v1 (this paper)")]
 
 
