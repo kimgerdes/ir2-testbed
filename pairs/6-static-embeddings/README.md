@@ -7,4 +7,4 @@ python pairs/6-static-embeddings/train_static.py && python pairs/6-static-embedd
 python pairs/6-static-embeddings/latency.py && python pairs/6-static-embeddings/analysis.py        # CPU cost (idle machine), Holm, error analysis -> results_variants/, figures/
 python pairs/6-static-embeddings/demo/prepare_demo.py && python pairs/6-static-embeddings/demo/demo_app.py   # demo, precomputed indexes
 ```
-`reproduce.ipynb`: the blog's NanoBEIR table, CPU speed-up and training recipe on 1 of its 13 datasets (MS MARCO). `static_emb/`: our from-scratch implementation (tests and 3-seed study in the companion repo). AI assistance (Claude) declared in the report.
+`reproduce.ipynb`: the blog's NanoBEIR table, CPU speed-up and training recipe on 1 of its 13 datasets (MS MARCO). `static_emb/`: our from-scratch implementation (its unit tests and the full 3-seed study are in our working repository, not included here). AI assistance (Claude) declared in the report.
