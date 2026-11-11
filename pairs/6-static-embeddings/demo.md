@@ -6,4 +6,4 @@
 
 Demo queries were chosen from the test queries after the runs, for presentation only: nothing was tuned on them.
 
-Fallback recording: link (2 minutes, to be added)
+Fallback recording (2 minutes): https://drive.google.com/file/d/1mAw8UKA8pmbzhuCYMCXZXq7htiBG6gSa/view?usp=sharing
