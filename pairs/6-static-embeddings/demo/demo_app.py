@@ -80,22 +80,29 @@ def search(query, dataset):
     return [info] + outs
 
 
+def selected(query):
+    """Highlights the preset whose query is in the box (none for a free query)."""
+    return [gr.update(variant="primary" if query.strip() == v["query"] else "secondary") for v in DEMO.values()]
+
+
 with gr.Blocks(title="Static embeddings: live demo") as app:
     gr.Markdown("## Static embeddings vs the spring pipeline: same query, precomputed indexes, CPU only")
     with gr.Row():
-        query = gr.Textbox(label="Query", value=DEMO["hero"]["query"], scale=5)
+        query = gr.Textbox(label="Query (type your own and press Enter, or click a demo query below)", value=DEMO["hero"]["query"], scale=5)
         dataset = gr.Radio(["scifact", "nfcorpus"], value=DEMO["hero"].get("dataset", "scifact"), label="Testbed corpus", scale=1)
+        go = gr.Button("Search", variant="secondary", scale=1)
     with gr.Row():
         buttons = {k: gr.Button(f"{k.capitalize()}: {v['query'][:45]}…", variant="primary" if k == "hero" else "secondary")
                    for k, v in DEMO.items()}
-        go = gr.Button("Search", variant="primary")
     info = gr.Markdown()
     with gr.Row():
         cols = [gr.Markdown() for _ in SYSTEMS]
-    go.click(search, [query, dataset], [info] + cols)
-    query.submit(search, [query, dataset], [info] + cols)
+    btns = list(buttons.values())
+    for trigger in (go.click, query.submit):
+        trigger(search, [query, dataset], [info] + cols).then(selected, query, btns)
     for k, b in buttons.items():
-        b.click(lambda k=k: (DEMO[k]["query"], DEMO[k].get("dataset", "scifact")), None, [query, dataset]).then(search, [query, dataset], [info] + cols)
+        b.click(lambda k=k: (DEMO[k]["query"], DEMO[k].get("dataset", "scifact")), None, [query, dataset]).then(
+            selected, query, btns).then(search, [query, dataset], [info] + cols)
 
 if __name__ == "__main__":
-    app.launch(server_name="127.0.0.1", server_port=7860)
+    app.launch(server_name="127.0.0.1", server_port=int(os.environ.get("GRADIO_SERVER_PORT", 7860)))
