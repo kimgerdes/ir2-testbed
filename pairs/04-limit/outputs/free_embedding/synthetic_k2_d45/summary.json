@@ -1,0 +1,28 @@
+{
+ "d": 45,
+ "k": 2,
+ "critical_n": 655,
+ "initial_n": 613,
+ "sweep": {
+  "651": true,
+  "652": true,
+  "653": true,
+  "654": true,
+  "655": true,
+  "656": false,
+  "657": false,
+  "658": true,
+  "659": false,
+  "660": false
+ },
+ "paper_fit": 613.3,
+ "hyper": {
+  "lr": 0.01,
+  "temperature": 0.1,
+  "max_iters": 100000,
+  "patience": 1000,
+  "min_delta": 1e-05,
+  "log_every": 50,
+  "seed": 42
+ }
+}

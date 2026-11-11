@@ -1,0 +1,15 @@
+{
+ "split": "limit-small",
+ "variant": "paper-era",
+ "settings": {
+  "query_length": 32,
+  "do_query_expansion": true
+ },
+ "pipeline": "exact MaxSim (limitlib)",
+ "query_tokens": 32,
+ "seconds": 11.5,
+ "recall@2": 83.15,
+ "recall@10": 97.6,
+ "recall@20": 99.15,
+ "recall@100": 100.0
+}

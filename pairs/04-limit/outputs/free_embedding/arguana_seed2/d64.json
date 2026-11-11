@@ -1,0 +1,31 @@
+{
+ "parameters": {
+  "qrels": "arguana",
+  "d": 64,
+  "lr": 0.01,
+  "temperature": 0.1,
+  "max_iters": 100000,
+  "patience": 1000,
+  "min_delta": 1e-05,
+  "log_every": 50,
+  "seed": 2
+ },
+ "n_queries": 1401,
+ "n_docs": 8674,
+ "n_relevant": 1401,
+ "success": true,
+ "max_accuracy": 1.0,
+ "final_accuracy": 1.0,
+ "final_loss": 0.28456786274909973,
+ "iterations": 51,
+ "seconds": 1.0,
+ "device": "cuda",
+ "losses": [
+  9.848443031311035,
+  0.28456786274909973
+ ],
+ "accuracies": [
+  0.0049964310601353645,
+  1.0
+ ]
+}

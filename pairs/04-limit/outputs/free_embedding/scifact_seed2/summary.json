@@ -1,0 +1,59 @@
+{
+ "qrels": "scifact",
+ "min_d": 6,
+ "d_max": 1024,
+ "hyper": {
+  "lr": 0.01,
+  "temperature": 0.1,
+  "max_iters": 100000,
+  "patience": 1000,
+  "min_delta": 1e-05,
+  "log_every": 50,
+  "seed": 2
+ },
+ "n_queries": 300,
+ "n_docs": 5183,
+ "n_relevant": 339,
+ "tried": {
+  "1": {
+   "success": false,
+   "accuracy": 0.0029498524963855743
+  },
+  "2": {
+   "success": false,
+   "accuracy": 0.04129793494939804
+  },
+  "4": {
+   "success": false,
+   "accuracy": 0.8849557638168335
+  },
+  "5": {
+   "success": false,
+   "accuracy": 0.9941002726554871
+  },
+  "6": {
+   "success": true,
+   "accuracy": 1.0
+  },
+  "8": {
+   "success": true,
+   "accuracy": 1.0
+  },
+  "16": {
+   "success": true,
+   "accuracy": 1.0
+  },
+  "32": {
+   "success": true,
+   "accuracy": 1.0
+  },
+  "64": {
+   "success": true,
+   "accuracy": 1.0
+  },
+  "128": {
+   "success": true,
+   "accuracy": 1.0
+  }
+ }
+}
