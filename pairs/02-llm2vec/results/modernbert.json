@@ -1,0 +1,58 @@
+{
+ "pair": "02-llm2vec",
+ "method": "ModernBERT-base, no training",
+ "datasets": {
+  "scifact": {
+   "n_queries": 300,
+   "ndcg10": 0.0634,
+   "recall100": 0.3811,
+   "baseline": {
+    "name": "bge",
+    "ndcg10": 0.7099,
+    "recall100": 0.9483
+   },
+   "ndcg10_vs_baseline": {
+    "delta": -0.6464,
+    "p": 1.4663967054664467e-78,
+    "ci95": [
+     -0.6955,
+     -0.597
+    ]
+   },
+   "recall100_vs_baseline": {
+    "delta": -0.5673,
+    "p": 2.051117615881525e-53,
+    "ci95": [
+     -0.626,
+     -0.5088
+    ]
+   }
+  },
+  "nfcorpus": {
+   "n_queries": 323,
+   "ndcg10": 0.019,
+   "recall100": 0.0429,
+   "baseline": {
+    "name": "bge",
+    "ndcg10": 0.3403,
+    "recall100": 0.3044
+   },
+   "ndcg10_vs_baseline": {
+    "delta": -0.3213,
+    "p": 7.220728421443034e-53,
+    "ci95": [
+     -0.3554,
+     -0.2871
+    ]
+   },
+   "recall100_vs_baseline": {
+    "delta": -0.2616,
+    "p": 1.9139249929988893e-44,
+    "ci95": [
+     -0.293,
+     -0.2306
+    ]
+   }
+  }
+ }
+}

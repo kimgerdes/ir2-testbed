@@ -1,0 +1,26 @@
+name: ir2-llm2vec
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+      - torch==2.10.0
+      - transformers==5.6.2
+      - peft==0.18.1
+      - accelerate==1.13.0
+      - datasets==4.8.5
+      - sentence-transformers==5.4.1
+      - numpy==2.5.4
+      - pyarrow==26.0.1
+      - scipy==1.17.1
+      - scikit-learn==1.8.0
+      - pandas==3.0.2
+      - matplotlib==3.10.9
+      - rank-bm25==0.2.2
+      - ipykernel==7.2.0
+      - nbconvert==7.16.6
+      - tqdm==4.67.3
+      - rich==15.0.0
+      - nltk==3.10.4
+      - pytrec-eval-terrier==0.5.11
