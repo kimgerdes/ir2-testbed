@@ -1,0 +1,12 @@
+{
+ "split": "limit-small",
+ "variant": "default",
+ "settings": "model defaults",
+ "pipeline": "exact MaxSim (limitlib)",
+ "query_tokens": 9,
+ "seconds": 2.6,
+ "recall@2": 99.75,
+ "recall@10": 100.0,
+ "recall@20": 100.0,
+ "recall@100": 100.0
+}

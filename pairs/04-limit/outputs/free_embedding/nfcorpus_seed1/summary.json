@@ -1,0 +1,67 @@
+{
+ "qrels": "nfcorpus",
+ "min_d": 24,
+ "d_max": 1024,
+ "hyper": {
+  "lr": 0.01,
+  "temperature": 0.1,
+  "max_iters": 100000,
+  "patience": 1000,
+  "min_delta": 1e-05,
+  "log_every": 50,
+  "seed": 1
+ },
+ "n_queries": 323,
+ "n_docs": 3633,
+ "n_relevant": 12334,
+ "tried": {
+  "1": {
+   "success": false,
+   "accuracy": 0.031376682221889496
+  },
+  "2": {
+   "success": false,
+   "accuracy": 0.18412518501281738
+  },
+  "4": {
+   "success": false,
+   "accuracy": 0.4375709295272827
+  },
+  "8": {
+   "success": false,
+   "accuracy": 0.8637100458145142
+  },
+  "16": {
+   "success": false,
+   "accuracy": 0.9961894154548645
+  },
+  "20": {
+   "success": false,
+   "accuracy": 0.9992703199386597
+  },
+  "22": {
+   "success": false,
+   "accuracy": 0.9996756911277771
+  },
+  "23": {
+   "success": false,
+   "accuracy": 0.9997567534446716
+  },
+  "24": {
+   "success": true,
+   "accuracy": 1.0
+  },
+  "32": {
+   "success": true,
+   "accuracy": 1.0
+  },
+  "64": {
+   "success": true,
+   "accuracy": 1.0
+  },
+  "128": {
+   "success": true,
+   "accuracy": 1.0
+  }
+ }
+}

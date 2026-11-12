@@ -1,0 +1,31 @@
+{
+ "parameters": {
+  "qrels": "scifact",
+  "d": 32,
+  "lr": 0.01,
+  "temperature": 0.1,
+  "max_iters": 100000,
+  "patience": 1000,
+  "min_delta": 1e-05,
+  "log_every": 50,
+  "seed": 1
+ },
+ "n_queries": 300,
+ "n_docs": 5183,
+ "n_relevant": 339,
+ "success": true,
+ "max_accuracy": 1.0,
+ "final_accuracy": 1.0,
+ "final_loss": 0.48085764050483704,
+ "iterations": 51,
+ "seconds": 1.0,
+ "device": "cuda",
+ "losses": [
+  10.152327537536621,
+  0.48085764050483704
+ ],
+ "accuracies": [
+  0.008849557489156723,
+  1.0
+ ]
+}

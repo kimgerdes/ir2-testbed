@@ -1,0 +1,12 @@
+{
+ "split": "limit",
+ "variant": "mteb",
+ "settings": "model defaults",
+ "pipeline": "MTEB 2.27.7",
+ "query_tokens": null,
+ "seconds": 259.6,
+ "recall@2": 81.0,
+ "recall@10": 87.1,
+ "recall@20": 88.2,
+ "recall@100": 89.7
+}

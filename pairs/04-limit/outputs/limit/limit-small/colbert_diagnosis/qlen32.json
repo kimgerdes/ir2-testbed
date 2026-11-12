@@ -1,0 +1,15 @@
+{
+ "split": "limit-small",
+ "variant": "qlen32",
+ "settings": {
+  "query_length": 32,
+  "do_query_expansion": false
+ },
+ "pipeline": "exact MaxSim (limitlib)",
+ "query_tokens": 9,
+ "seconds": 11.6,
+ "recall@2": 99.75,
+ "recall@10": 100.0,
+ "recall@20": 100.0,
+ "recall@100": 100.0
+}

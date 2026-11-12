@@ -1,0 +1,59 @@
+{
+ "qrels": "arguana",
+ "min_d": 7,
+ "d_max": 1024,
+ "hyper": {
+  "lr": 0.01,
+  "temperature": 0.1,
+  "max_iters": 100000,
+  "patience": 1000,
+  "min_delta": 1e-05,
+  "log_every": 50,
+  "seed": 2
+ },
+ "n_queries": 1401,
+ "n_docs": 8674,
+ "n_relevant": 1401,
+ "tried": {
+  "1": {
+   "success": false,
+   "accuracy": 0.0007137758657336235
+  },
+  "2": {
+   "success": false,
+   "accuracy": 0.013561741448938847
+  },
+  "4": {
+   "success": false,
+   "accuracy": 0.6588151454925537
+  },
+  "6": {
+   "success": false,
+   "accuracy": 0.997144877910614
+  },
+  "7": {
+   "success": true,
+   "accuracy": 1.0
+  },
+  "8": {
+   "success": true,
+   "accuracy": 1.0
+  },
+  "16": {
+   "success": true,
+   "accuracy": 1.0
+  },
+  "32": {
+   "success": true,
+   "accuracy": 1.0
+  },
+  "64": {
+   "success": true,
+   "accuracy": 1.0
+  },
+  "128": {
+   "success": true,
+   "accuracy": 1.0
+  }
+ }
+}

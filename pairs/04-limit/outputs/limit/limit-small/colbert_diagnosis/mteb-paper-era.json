@@ -1,0 +1,15 @@
+{
+ "split": "limit-small",
+ "variant": "mteb-paper-era",
+ "settings": {
+  "query_length": 32,
+  "do_query_expansion": true
+ },
+ "pipeline": "MTEB 2.27.7",
+ "query_tokens": null,
+ "seconds": 18.5,
+ "recall@2": 80.8,
+ "recall@10": 97.15,
+ "recall@20": 98.65,
+ "recall@100": 100.0
+}

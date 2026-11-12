@@ -1,0 +1,31 @@
+{
+ "parameters": {
+  "qrels": "limit-small",
+  "d": 32,
+  "lr": 0.01,
+  "temperature": 0.1,
+  "max_iters": 100000,
+  "patience": 1000,
+  "min_delta": 1e-05,
+  "log_every": 50,
+  "seed": 42
+ },
+ "n_queries": 1000,
+ "n_docs": 46,
+ "n_relevant": 2000,
+ "success": true,
+ "max_accuracy": 1.0,
+ "final_accuracy": 1.0,
+ "final_loss": 0.795447826385498,
+ "iterations": 51,
+ "seconds": 0.7,
+ "device": "cuda",
+ "losses": [
+  5.2468366622924805,
+  0.795447826385498
+ ],
+ "accuracies": [
+  0.05950000137090683,
+  1.0
+ ]
+}
