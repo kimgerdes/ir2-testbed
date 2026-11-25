@@ -30,11 +30,9 @@ html, body { height: 100%; }
 body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.4 var(--sans); display: flex; flex-direction: column; min-height: 100vh; }
 button, input { font: inherit; color: inherit; }
 
-.frame { background: var(--teal); color: #fafafa; padding: 12px 28px; }
-.frame h1 { margin: 0; font-size: 24px; font-weight: 400; }
 
 /* search: always at the top */
-.search { padding: 26px 28px 18px; display: flex; flex-direction: column; align-items: center; }
+.search { padding: 26px 28px 18px; display: flex; flex-direction: column; align-items: center; position: relative; }
 .ask { display: flex; gap: 10px; width: 100%; max-width: 940px; }
 .ask input {
   flex: 1; min-width: 0; border: 1.5px solid #c9d0d1; background: var(--card); border-radius: 10px;
@@ -61,7 +59,10 @@ button, input { font: inherit; color: inherit; }
 .status.off i { background: #b5bcbd; }
 
 .results { flex: 1; display: flex; flex-direction: column; padding: 0 28px 20px; min-height: 0; position: relative; }
-.hint { position: absolute; left: 0; right: 0; top: 30vh; margin: 0; text-align: center; color: var(--faint); font-size: 17px; transition: opacity .35s; }
+.hint { position: absolute; left: 0; right: 0; top: 24vh; text-align: center; transition: opacity .35s; }
+.hint p { margin: 0; font-size: 17px; color: var(--faint); }
+.hint .lead-in { font-size: 30px; color: var(--ink); margin-bottom: 12px; }
+.hint .lead-in b { font-weight: 700; }
 body:not(.start) .hint { opacity: 0; pointer-events: none; }
 .start .strip, .start main { opacity: 0; pointer-events: none; }
 .strip, main { transition: opacity .35s ease, transform .35s ease; }
@@ -140,7 +141,7 @@ main { flex: 1; display: grid; grid-template-columns: minmax(0, 1fr) clamp(420px
 .links path.labelled { stroke: var(--green); stroke-width: 3.4; }
 
 /* what rank1 read, what it thought, what it answered */
-.judge { background: var(--card); border: 1px solid var(--rule); border-radius: 10px; padding: 16px 20px 14px; display: flex; flex-direction: column; min-height: 0; max-height: calc(100vh - 205px); }
+.judge { background: var(--card); border: 1px solid var(--rule); border-radius: 10px; padding: 16px 20px 14px; display: flex; flex-direction: column; min-height: 0; max-height: calc(100vh - 160px); }
 .judge h3 { margin: 0 0 6px; font-size: 18px; line-height: 1.28; font-weight: 700; }
 .missing { margin: 0 0 6px; font-size: 14px; color: var(--soft); }
 .missing:empty { display: none; }
@@ -172,9 +173,8 @@ main { flex: 1; display: grid; grid-template-columns: minmax(0, 1fr) clamp(420px
   :root { --row: 43px; }
   .doc { margin-bottom: 4px; }
   .doc .t { font-size: 12.5px; }
-  .frame { padding: 9px 28px; }
   .search { padding: 18px 28px 12px; }
-  .judge { max-height: calc(100vh - 175px); }
+    .judge { max-height: calc(100vh - 135px); }
 }
 @media (max-height: 740px) {
   :root { --row: 38px; }
