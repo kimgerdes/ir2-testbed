@@ -1,0 +1,13 @@
+# Demo queries (SciFact: BM25 and the spring cross-encoder vs Rank1)
+
+Run from the repo root: `python pairs/14-rank1/demo.py --prepare` once (BM25 index of SciFact, downloads the cross-encoder and Rank1-1.5B), then `python pairs/14-rank1/demo.py`, which opens http://127.0.0.1:8014. Start it before the talk: the live model loads in the background.
+
+The page opens on a search bar: a claim typed there runs live on the laptop. Hero and failure, under the bar, are precomputed from our Kaggle runs (Rank1-3B on the BM25 top 20, `demo/queries.json`). Each result shows BM25 → cross-encoder → Rank1 side by side (top 10), with a line joining the same abstract across the lists, the relevant abstract in green, and Rank1's reasoning on the selected abstract; a switch re-sorts Rank1's list with its answers without reasoning.
+
+- **Hero** (query 238): "Cells undergoing methionine restriction may activate miRNAs." The labelled abstract says that miRNAs, which normally repress, become activators under stress; it never mentions methionine. BM25 and the cross-encoder rank it 8th, Rank1 1st, the only abstract it scores above 0.99. Its reasoning makes the missing step itself: "methionine restriction is a dietary intervention that mimics fasting, which is a form of stress response", so the abstract applies. Without reasoning Rank1-3B also ranks it 1st: the gain comes from the model, the reasoning shows why.
+- **Failure** (query 268): "Cold exposure increases BAT recruitment." The labelled abstract is about cold exposure promoting atherosclerosis through UCP1-dependent lipolysis. BM25 and the cross-encoder rank it 2nd, Rank1 13th with P(true) 0.00. Its reasoning knows that UCP1 "is involved in BAT thermogenesis", then decides that "the passage doesn't mention BAT recruitment" because its topic is atherosclerosis: it judges the topic and asks for the exact words, as on ArguAna in the slides.
+- **Wildcard**: a claim typed on the spot by the discussants or the room. Live: BM25 top 10, the cross-encoder, then Rank1-1.5B (4-bit, MLX) answers each abstract at once and reasons in full on each of the 10, about a minute in all; the reasoning appears as it is written. If the claim is a SciFact claim, its labelled abstract is marked. Live verdicts can differ from the Kaggle runs: in our laptop test, 9 of 10 were the same. Backup, if the room is quiet: "Drinking coffee lowers the risk of type 2 diabetes." (not a SciFact claim: no label, the room judges the lists).
+
+Demo queries were chosen from the test queries after the runs, for presentation only: nothing was tuned on them.
+
+Fallback recording (2 minutes): link added before the session.

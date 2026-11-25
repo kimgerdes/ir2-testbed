@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rank1 demo</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body class="start">
+<header class="frame"><h1>Rank1</h1></header>
+
+<section class="search">
+  <form class="ask" id="ask">
+    <input id="claim" type="text" autocomplete="off" spellcheck="false" placeholder="Type a scientific claim">
+    <button type="submit" id="run">Rerank</button>
+  </form>
+  <div class="under">
+    <div class="examples" id="examples"></div>
+    <div class="status" id="status"><i></i><span></span></div>
+  </div>
+</section>
+
+<section class="results">
+  <p class="hint">Type a claim and Rank1 reranks it live, or open the hero or the failure.</p>
+  <div class="strip">
+    <div class="journey" id="journey"></div>
+    <div class="runbar" id="runbar">
+      <div class="runtext"><span id="run-what"></span><span id="run-left"></span></div>
+      <div class="segments" id="segments"></div>
+    </div>
+  </div>
+  <main id="stage">
+    <section class="board" id="board">
+      <div class="cols">
+        <div class="col" data-col="bm25"><header><h2>BM25</h2></header><ol></ol></div>
+        <div class="col" data-col="ce"><header><h2>Cross-encoder</h2></header><ol></ol></div>
+        <div class="col" data-col="r1">
+          <header>
+            <h2>Rank1 <small id="model"></small></h2>
+            <div class="mode" id="mode"><button data-mode="r1" class="on">reasoning</button><button data-mode="r2">no reasoning</button></div>
+          </header>
+          <ol></ol>
+        </div>
+      </div>
+      <svg class="links" id="links"></svg>
+    </section>
+
+    <aside class="judge" id="judge">
+      <h3 id="doc-title"></h3>
+      <p class="missing" id="missing"></p>
+      <p class="abstract" id="doc-text"></p>
+      <div class="thought" id="thought">
+        <div class="tag">&lt;think&gt;</div>
+        <div class="body" id="reasoning"></div>
+        <div class="tag" id="verdict-tag"></div>
+      </div>
+      <div class="meters">
+        <div class="meter r1"><span>P(true), reasoning</span><div><i id="m1"></i></div><b id="v1"></b></div>
+        <div class="meter r2"><span>P(true), no reasoning</span><div><i id="m2"></i></div><b id="v2"></b></div>
+      </div>
+      <button class="follow" id="follow" hidden>follow the live reasoning</button>
+    </aside>
+  </main>
+</section>
+<script src="/app.js"></script>
+</body>
+</html>
