@@ -19,6 +19,7 @@ Pair 00 is the instructor's worked example from the model presentation.
 | gpl_BGE (eval_base) vs bge ([10_GPL](pairs/10-GPL/)) | 0.511 | 0.859 | bge-small-en-v1.5 | **-0.198 [-0.237, -0.160]** | < 0.001 |
 | BGE-M3 (All) ([11-bge-m3](pairs/11-bge-m3/)) | 0.692 | 0.914 | RRF (BM25 + MiniLM) | -0.026 [-0.054, +0.003] | 0.078 |
 | mat2vec word2vec + SIF (paper 12) ([12-mat2vec](pairs/12-mat2vec/)) | 0.414 | 0.808 | BM25 | **-0.262 [-0.307, -0.216]** | < 0.001 |
+| HyDE + BGE-small (Qwen2.5-3B, N=8) ([15-hyde](pairs/15-hyde/)) | 0.742 | 0.972 | bge-small-en-v1.5 | **+0.032 [+0.010, +0.054]** | 0.005 |
 | static-retrieval-mrl-en-v1 (static, 2025) ([6-static-embeddings](pairs/6-static-embeddings/)) | 0.591 | 0.901 | all-MiniLM-L6-v2 | **-0.054 [-0.088, -0.020]** | 0.002 |
 
 ## NFCorpus
@@ -36,6 +37,7 @@ Pair 00 is the instructor's worked example from the model presentation.
 | gpl_BGE (eval_base) vs bge ([10_GPL](pairs/10-GPL/)) | 0.303 | 0.275 | bge-small-en-v1.5 | **-0.038 [-0.054, -0.021]** | < 0.001 |
 | BGE-M3 (All) ([11-bge-m3](pairs/11-bge-m3/)) | 0.336 | 0.289 | RRF (BM25 + MiniLM) | -0.006 [-0.022, +0.010] | 0.470 |
 | mat2vec word2vec + SIF (paper 12) ([12-mat2vec](pairs/12-mat2vec/)) | 0.219 | 0.208 | BM25 | **-0.102 [-0.125, -0.079]** | < 0.001 |
+| HyDE + BGE-small (Qwen2.5-3B, N=8) ([15-hyde](pairs/15-hyde/)) | 0.361 | 0.328 | bge-small-en-v1.5 | **+0.021 [+0.006, +0.036]** | 0.006 |
 | static-retrieval-mrl-en-v1 (static, 2025) ([6-static-embeddings](pairs/6-static-embeddings/)) | 0.301 | 0.280 | all-MiniLM-L6-v2 | -0.015 [-0.034, +0.004] | 0.115 |
 
 ## ArguAna
@@ -53,4 +55,5 @@ Pair 00 is the instructor's worked example from the model presentation.
 | gpl_BGE (eval_base) vs bge ([10_GPL](pairs/10-GPL/)) | 0.360 | 0.900 | bge-small-en-v1.5 | **-0.246 [-0.266, -0.225]** | < 0.001 |
 | BGE-M3 (All) ([11-bge-m3](pairs/11-bge-m3/)) | 0.527 | 0.980 | RRF (BM25 + MiniLM) | **-0.022 [-0.036, -0.008]** | 0.002 |
 | mat2vec word2vec + SIF (paper 12) ([12-mat2vec](pairs/12-mat2vec/)) | 0.385 | 0.912 | BM25 | **-0.131 [-0.148, -0.112]** | < 0.001 |
+| HyDE + BGE-small (Qwen2.5-3B, N=8) ([15-hyde](pairs/15-hyde/)) | 0.477 | 0.969 | bge-small-en-v1.5 | **-0.129 [-0.145, -0.114]** | < 0.001 |
 | static-retrieval-mrl-en-v1 (static, 2025) ([6-static-embeddings](pairs/6-static-embeddings/)) | 0.453 | 0.967 | all-MiniLM-L6-v2 | **-0.049 [-0.067, -0.032]** | < 0.001 |
