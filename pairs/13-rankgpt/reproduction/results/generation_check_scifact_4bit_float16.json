@@ -1,0 +1,19 @@
+{
+  "dataset": "scifact",
+  "run": "gencheck_w20s10_top50",
+  "ref": "rankzephyr_w20s10_top50",
+  "quant": {
+    "run": "4bit",
+    "ref": "4bit"
+  },
+  "windows": 20,
+  "windows_generated": 20,
+  "windows_same_position": 20,
+  "windows_same_input": 20,
+  "identical_responses": 17,
+  "identical_orders": 17,
+  "queries": 5,
+  "queries_same_ndcg10": 4,
+  "mean_ndcg10_diff": -0.01193714499682096,
+  "verdict": "different: compare only runs made on the same hardware with the same quantisation. A difference between two runs made here stays clean; a difference with the reference run also contains the hardware effect measured above."
+}

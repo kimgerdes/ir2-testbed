@@ -1,0 +1,6 @@
+# The testbed's root .gitignore drops every data/ and runs/ folder; keep the small ones reproduction/ needs.
+# (Our testbed runs in runs/ stay ignored, as the testbed asks.)
+!reproduction/data/
+!reproduction/runs/
+# Hugging Face caches, if HF_HOME is pointed here
+hf_cache/

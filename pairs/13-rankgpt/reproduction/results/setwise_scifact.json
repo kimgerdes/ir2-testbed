@@ -1,0 +1,167 @@
+{
+  "model": "google/flan-t5-large",
+  "set": "scifact",
+  "hits": 50,
+  "methods": {
+    "pointwise.yes_no": {
+      "nDCG@1": 0.35,
+      "nDCG@5": 0.48950443494151175,
+      "nDCG@10": 0.5149958553324495,
+      "n_queries": 100,
+      "method": "pointwise.yes_no",
+      "config": {
+        "cls": "pointwise",
+        "method": "yes_no",
+        "query_length": 32,
+        "passage_length": 128,
+        "batch_size": 32
+      },
+      "limit": 100,
+      "avg_inferences": 2.0,
+      "avg_prompt_tokens": 8688.5,
+      "avg_gen_tokens": 0.0,
+      "seconds_per_query": 1.799476284980774
+    },
+    "pointwise.qlm": {
+      "nDCG@1": 0.61,
+      "nDCG@5": 0.6748049252952604,
+      "nDCG@10": 0.7017005464703538,
+      "n_queries": 100,
+      "method": "pointwise.qlm",
+      "config": {
+        "cls": "pointwise",
+        "method": "qlm",
+        "query_length": 32,
+        "passage_length": 128,
+        "batch_size": 32
+      },
+      "limit": 100,
+      "avg_inferences": 2.0,
+      "avg_prompt_tokens": 8238.5,
+      "avg_gen_tokens": 0.0,
+      "seconds_per_query": 1.6782482051849366
+    },
+    "listwise.generation": {
+      "nDCG@1": 0.54,
+      "nDCG@5": 0.6470342537832845,
+      "nDCG@10": 0.6831638705216971,
+      "n_queries": 100,
+      "method": "listwise.generation",
+      "config": {
+        "cls": "listwise",
+        "scoring": "generation",
+        "window_size": 4,
+        "step_size": 2,
+        "num_repeat": 5,
+        "query_length": 32,
+        "passage_length": 100
+      },
+      "limit": 100,
+      "avg_inferences": 120.0,
+      "avg_prompt_tokens": 61440.0,
+      "avg_gen_tokens": 572.07,
+      "seconds_per_query": 31.979640395641326
+    },
+    "listwise.likelihood": {
+      "nDCG@1": 0.53,
+      "nDCG@5": 0.6465080560050595,
+      "nDCG@10": 0.6679271378846979,
+      "n_queries": 100,
+      "method": "listwise.likelihood",
+      "config": {
+        "cls": "listwise",
+        "scoring": "likelihood",
+        "window_size": 4,
+        "step_size": 2,
+        "num_repeat": 5,
+        "query_length": 32,
+        "passage_length": 100
+      },
+      "limit": 100,
+      "avg_inferences": 120.0,
+      "avg_prompt_tokens": 57759.92,
+      "avg_gen_tokens": 0.0,
+      "seconds_per_query": 15.427704906463623
+    },
+    "setwise.heapsort": {
+      "nDCG@1": 0.5,
+      "nDCG@5": 0.6194332637583052,
+      "nDCG@10": 0.6321152099280254,
+      "n_queries": 100,
+      "method": "setwise.heapsort",
+      "config": {
+        "cls": "setwise",
+        "method": "heapsort",
+        "num_child": 3,
+        "k": 10,
+        "query_length": 32,
+        "passage_length": 128
+      },
+      "limit": 100,
+      "avg_inferences": 46.05,
+      "avg_prompt_tokens": 26992.65,
+      "avg_gen_tokens": 230.25,
+      "seconds_per_query": 8.704820487499237
+    },
+    "setwise.bubblesort": {
+      "nDCG@1": 0.59,
+      "nDCG@5": 0.674705170851541,
+      "nDCG@10": 0.7021876138063913,
+      "n_queries": 100,
+      "method": "setwise.bubblesort",
+      "config": {
+        "cls": "setwise",
+        "method": "bubblesort",
+        "num_child": 3,
+        "k": 10,
+        "query_length": 32,
+        "passage_length": 128
+      },
+      "limit": 100,
+      "avg_inferences": 150.85,
+      "avg_prompt_tokens": 87919.69,
+      "avg_gen_tokens": 754.25,
+      "seconds_per_query": 32.5785852766037
+    },
+    "pairwise.heapsort": {
+      "nDCG@1": 0.66,
+      "nDCG@5": 0.7275188851494456,
+      "nDCG@10": 0.7470587107231097,
+      "n_queries": 100,
+      "method": "pairwise.heapsort",
+      "config": {
+        "cls": "pairwise",
+        "method": "heapsort",
+        "k": 10,
+        "query_length": 32,
+        "passage_length": 128,
+        "batch_size": 2
+      },
+      "limit": 100,
+      "avg_inferences": 132.04,
+      "avg_prompt_tokens": 84774.38,
+      "avg_gen_tokens": 1320.4,
+      "seconds_per_query": 27.176079318523406
+    },
+    "pairwise.bubblesort": {
+      "nDCG@1": 0.67,
+      "nDCG@5": 0.7400178128392534,
+      "nDCG@10": 0.7590333012261561,
+      "n_queries": 100,
+      "method": "pairwise.bubblesort",
+      "config": {
+        "cls": "pairwise",
+        "method": "bubblesort",
+        "k": 10,
+        "query_length": 32,
+        "passage_length": 128,
+        "batch_size": 2
+      },
+      "limit": 100,
+      "avg_inferences": 339.13,
+      "avg_prompt_tokens": 217746.82,
+      "avg_gen_tokens": 3391.3,
+      "seconds_per_query": 66.86387079238892
+    }
+  }
+}

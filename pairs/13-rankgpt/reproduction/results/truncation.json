@@ -1,0 +1,99 @@
+{
+ "scifact": {
+  "rankzephyr_w20s10_top50": {
+   "queries": 300,
+   "windows": 1200,
+   "window_size": 20,
+   "windows_capped_share": 1.0,
+   "cap_median": 102.0,
+   "cap_min": 86,
+   "cap_max": 139,
+   "passages_cut_share": 0.9701,
+   "candidate_words_mean": 179.3,
+   "seen_words_mean": 102.3,
+   "words_kept_share": 0.571
+  },
+  "rankzephyr_colab_w20s10_top50": {
+   "queries": 300,
+   "windows": 1200,
+   "window_size": 20,
+   "windows_capped_share": 1.0,
+   "cap_median": 102.0,
+   "cap_min": 86,
+   "cap_max": 139,
+   "passages_cut_share": 0.9697,
+   "candidate_words_mean": 179.2,
+   "seen_words_mean": 102.4,
+   "words_kept_share": 0.5712
+  },
+  "rankzephyr_abl_w10s5_top50": {
+   "queries": 300,
+   "windows": 2700,
+   "window_size": 10,
+   "windows_capped_share": 0.0285,
+   "cap_median": 196,
+   "cap_min": 178,
+   "cap_max": 199,
+   "passages_cut_share": 0.0236,
+   "candidate_words_mean": 179.0,
+   "seen_words_mean": 178.8,
+   "words_kept_share": 0.9992
+  },
+  "rankzephyr_abl_pw100_w10s5_top50": {
+   "queries": 300,
+   "windows": 2700,
+   "window_size": 10,
+   "windows_capped_share": 1.0,
+   "cap_median": 100.0,
+   "cap_min": 100,
+   "cap_max": 100,
+   "passages_cut_share": 0.974,
+   "candidate_words_mean": 178.8,
+   "seen_words_mean": 99.6,
+   "words_kept_share": 0.557
+  }
+ },
+ "nfcorpus": {
+  "rankzephyr_w20s10_top50": {
+   "queries": 323,
+   "windows": 1292,
+   "window_size": 20,
+   "windows_capped_share": 1.0,
+   "cap_median": 112.0,
+   "cap_min": 91,
+   "cap_max": 137,
+   "passages_cut_share": 0.9493,
+   "candidate_words_mean": 183.8,
+   "seen_words_mean": 110.5,
+   "words_kept_share": 0.6011
+  },
+  "rankzephyr_depth_w20s10_top100": {
+   "queries": 323,
+   "windows": 2907,
+   "window_size": 20,
+   "windows_capped_share": 1.0,
+   "cap_median": 110,
+   "cap_min": 96,
+   "cap_max": 141,
+   "passages_cut_share": 0.958,
+   "candidate_words_mean": 186.3,
+   "seen_words_mean": 109.7,
+   "words_kept_share": 0.5891
+  }
+ },
+ "arguana": {
+  "rankzephyr_w20s10_top20": {
+   "queries": 1406,
+   "windows": 1406,
+   "window_size": 20,
+   "windows_capped_share": 0.9545,
+   "cap_median": 133.0,
+   "cap_min": 54,
+   "cap_max": 195,
+   "passages_cut_share": 0.6741,
+   "candidate_words_mean": 158.8,
+   "seen_words_mean": 123.8,
+   "words_kept_share": 0.7796
+  }
+ }
+}

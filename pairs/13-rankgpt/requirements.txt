@@ -1,0 +1,26 @@
+# Pair 13 (RankGPT): the versions of our runs (Python 3.11). Install from the testbed root:
+#   pip install -r requirements.txt -r pairs/13-rankgpt/requirements.txt
+# The submitted runs and reproduce.ipynb replay cached LLM windows and need no GPU; new windows need CUDA and about
+# 6 GB of GPU memory. On Windows, install torch with CUDA from the PyTorch index first:
+#   pip install torch==2.11.0 --index-url https://download.pytorch.org/whl/cu128
+torch==2.11.0
+transformers==5.23.0      # the window cache is keyed by the exact prompt, rendered by the tokenizer's chat template
+tokenizers==0.23.3
+huggingface-hub==2.4.0
+safetensors==0.8.0
+accelerate==1.15.0
+bitsandbytes==0.50.2
+sentencepiece==0.2.3
+protobuf==7.36.2
+ftfy==6.3.1
+# the testbed's packages, at the versions we used
+numpy==2.4.6
+scipy==1.17.1
+scikit-learn==1.9.1
+nltk==3.10.4
+rank-bm25==0.2.2
+pytrec-eval-terrier==0.5.11
+sentence-transformers==6.3.0
+# to run reproduce.ipynb
+nbconvert==7.17.2
+ipykernel==7.4.0
