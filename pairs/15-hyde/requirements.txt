@@ -1,0 +1,16 @@
+# Python 3.12. For generate.py and demo_web.py --live (Apple silicon) also: pip install mlx-lm==0.32.2 (needs transformers>=5.7, so use a separate environment).
+bm25s==0.3.16
+datasets==5.1.0
+ipykernel==7.4.0
+jupyter==1.1.1
+nbconvert==7.17.2
+nltk==3.10.4
+numpy==2.4.6
+PyStemmer==3.1.0
+pytrec_eval-terrier==0.5.11
+rank-bm25==0.2.2
+scikit-learn==1.9.1
+scipy==1.18.1
+sentence-transformers==6.2.0
+torch==2.14.1
+transformers==5.3.0

@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HyDE demo</title>
+<style>
+:root { --bg: #fafaf7; --fg: #1d1d1b; --quiet: #6b6b66; --line: #dcdcd4; --good: #1f7a3a; --good-bg: #e3f3e7; --bad: #b3261e; --bar: #8fa6c9; }
+@media (prefers-color-scheme: dark) { :root { --bg: #17181a; --fg: #ececea; --quiet: #9a9a94; --line: #34363a; --good: #6fcf8a; --good-bg: #1c3324; --bad: #f2877f; --bar: #4a6590; } }
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; padding: 16px; background: var(--bg); color: var(--fg); font: 20px/1.35 system-ui, sans-serif; }
+.bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; }
+select, input, button { font: inherit; padding: 6px 10px; color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 6px; }
+button { cursor: pointer; }
+input.search { width: 18em; }
+input.live { width: 26em; }
+#hits { position: relative; }
+#hits div { padding: 6px 10px; border: 1px solid var(--line); border-top: 0; cursor: pointer; background: var(--bg); }
+#hits div:hover { background: var(--good-bg); }
+#query { font-size: 26px; font-weight: 600; margin: 8px 0; }
+.slider { display: flex; gap: 12px; align-items: center; margin: 8px 0 16px; color: var(--quiet); }
+.slider input { flex: 1; max-width: 360px; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+h2 { font-size: 20px; margin: 0 0 8px; }
+.row { display: grid; grid-template-columns: 2em 1.4em 1fr 3.6em; gap: 6px; padding: 6px 0; border-top: 1px solid var(--line); }
+.row.rel { background: var(--good-bg); }
+.row small { display: block; color: var(--quiet); }
+.track { height: 6px; background: var(--line); border-radius: 3px; margin-top: 4px; }
+.track i { display: block; height: 6px; background: var(--bar); border-radius: 3px; }
+.ok { color: var(--good); font-weight: 700; }
+.no { color: var(--quiet); }
+.up { color: var(--good); }
+.down { color: var(--bad); }
+.new { color: var(--good); font-weight: 700; }
+details { margin-top: 16px; }
+summary { cursor: pointer; font-weight: 600; }
+#docs p { margin: 8px 0; font-size: 17px; }
+#docs p.off { opacity: .35; }
+#status { color: var(--quiet); }
+@media (max-width: 900px) { .cols { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="bar">
+  <select id="dataset"><option>scifact</option><option>nfcorpus</option><option>arguana</option></select>
+  <input class="search" id="search" placeholder="search a test query">
+  <button data-ds="nfcorpus" data-qid="PLAIN-817">Hero</button>
+  <button data-ds="arguana" data-qid="test-health-ppelfhwbpba-pro02a">Failure</button>
+  <button data-ds="scifact" data-qid="1">Wildcard</button>
+  <select id="cache"><option value="generations">first cache (long)</option><option value="generations_plain">plain cache (short)</option></select>
+</div>
+<div id="hits"></div>
+<div class="bar" id="livebar" hidden>
+  <input class="live" id="text" placeholder="type a SciFact claim">
+  <button id="go">Generate live</button>
+</div>
+<div id="status"></div>
+<div id="query"></div>
+<div class="slider">Hypothetical documents used <input type="range" id="n" min="0" max="8" value="8"> <b id="nval">8</b></div>
+<div class="cols">
+  <div><h2>BGE-small</h2><div id="base"></div></div>
+  <div><h2>HyDE + BGE-small</h2><div id="hyde"></div></div>
+</div>
+<details open><summary>Hypothetical documents</summary><div id="docs"></div></details>
+<script>
+const $ = id => document.getElementById(id);
+let state = null, current = null, timer = null;
+
+const esc = s => Object.assign(document.createElement("div"), { textContent: s }).innerHTML;
+const get = async url => (await fetch(url)).json();
+
+async function show(dataset, qid) {
+  current = { dataset, qid };
+  $("dataset").value = dataset;
+  $("status").textContent = "loading";
+  state = await get(`/api/run?dataset=${dataset}&qid=${encodeURIComponent(qid)}&cache=${$("cache").value}`);
+  $("status").textContent = "";
+  draw();
+}
+
+function column(id, rows, base) {
+  $(id).innerHTML = rows.map((r, i) => {
+    let move = "";
+    if (base) {
+      const was = base.findIndex(b => b.id === r.id);
+      move = was < 0 ? `<span class="new">new</span>` : was > i ? `<span class="up">▲${was - i}</span>` : was < i ? `<span class="down">▼${i - was}</span>` : "";
+    }
+    const mark = r.rel === true ? `<span class="ok">✓</span>` : r.rel === false ? `<span class="no">✗</span>` : "";
+    return `<div class="row ${r.rel ? "rel" : ""}"><b>${i + 1}</b><span>${mark}</span>
+      <div>${esc(r.title)}<div class="track"><i style="width:${Math.max(0, r.score) * 100}%"></i></div></div>
+      <span>${move}<small>${r.score.toFixed(3)}</small></span></div>`;
+  }).join("");
+}
+
+function draw() {
+  const n = +$("n").value;
+  $("nval").textContent = n;
+  $("query").textContent = state.query;
+  column("base", state.base, null);
+  column("hyde", state.hyde[n], state.base);
+  $("docs").innerHTML = state.docs.map((d, i) => `<p class="${i < n ? "" : "off"}"><b>${i + 1}.</b> ${esc(d)}</p>`).join("");
+}
+
+$("n").oninput = () => state && draw();
+$("cache").onchange = () => current && current.qid && show(current.dataset, current.qid);
+$("dataset").onchange = () => { $("search").value = ""; $("hits").innerHTML = ""; };
+document.querySelectorAll("button[data-qid]").forEach(b => b.onclick = () => show(b.dataset.ds, b.dataset.qid));
+
+$("search").oninput = () => {
+  clearTimeout(timer);
+  timer = setTimeout(async () => {
+    const q = $("search").value.trim();
+    if (!q) return void ($("hits").innerHTML = "");
+    const hits = await get(`/api/queries?dataset=${$("dataset").value}&q=${encodeURIComponent(q)}`);
+    $("hits").innerHTML = hits.map(h => `<div data-id="${esc(h.id)}">${esc(h.text.slice(0, 120))}</div>`).join("");
+    document.querySelectorAll("#hits div").forEach(d => d.onclick = () => { $("hits").innerHTML = ""; show($("dataset").value, d.dataset.id); });
+  }, 200);
+};
+
+$("go").onclick = async () => {
+  const text = $("text").value.trim();
+  if (!text) return;
+  current = null;
+  $("dataset").value = "scifact";
+  const start = Date.now();
+  const tick = setInterval(() => $("status").textContent = `generating ${Math.round((Date.now() - start) / 1000)} s`, 500);
+  const res = await fetch("/api/live", { method: "POST", body: JSON.stringify({ text }) });
+  clearInterval(tick);
+  $("status").textContent = `generated in ${Math.round((Date.now() - start) / 1000)} s`;
+  state = await res.json();
+  draw();
+};
+
+get("/api/config").then(c => { $("livebar").hidden = !c.live; });
+show("nfcorpus", "PLAIN-817");
+</script>
+</body>
+</html>
